@@ -18,8 +18,6 @@ import com.sumup.merchant.reader.models.TransactionInfo;
 import com.sumup.merchant.reader.api.SumUpAPI;
 import com.sumup.merchant.reader.api.SumUpLogin;
 import com.sumup.merchant.reader.api.SumUpPayment;
-import com.sumup.merchant.reader.CoreState;
-import com.sumup.merchant.reader.models.UserModel;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -175,26 +173,6 @@ public class RNSumUpModule extends ReactContextBaseJavaModule {
     @Override
     public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
       switch (requestCode) {
-        case REQUEST_CODE_LOGIN:
-          if (data != null) {
-            Bundle extra = data.getExtras();
-            if (extra.getInt(SumUpAPI.Response.RESULT_CODE) == REQUEST_CODE_LOGIN) {
-              WritableMap map = Arguments.createMap();
-              map.putBoolean("success", true);
-
-              UserModel userInfo = CoreState.Instance().get(UserModel.class);
-              WritableMap userAdditionalInfo = Arguments.createMap();
-              userAdditionalInfo.putString("merchantCode", userInfo.getBusiness().getMerchantCode());
-              userAdditionalInfo.putString("currencyCode", userInfo.getBusiness().getCountry().getCurrency().getCode());
-              map.putMap("userAdditionalInfo", userAdditionalInfo);
-
-              mSumUpPromise.resolve(map);
-            } else {
-              mSumUpPromise.reject(extra.getString(SumUpAPI.Response.RESULT_CODE), extra.getString(SumUpAPI.Response.MESSAGE));
-            }
-          }
-          break;
-
         case REQUEST_CODE_PAYMENT:
           if (data != null) {
             Bundle extra = data.getExtras();
