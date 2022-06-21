@@ -14,12 +14,12 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
-import com.sumup.merchant.Models.TransactionInfo;
+import com.sumup.merchant.reader.models.TransactionInfo
 import com.sumup.merchant.reader.api.SumUpAPI;
 import com.sumup.merchant.reader.api.SumUpLogin;
 import com.sumup.merchant.reader.api.SumUpPayment;
-import com.sumup.merchant.CoreState;
-import com.sumup.merchant.Models.UserModel;
+import com.sumup.merchant.reader.CoreState;
+import com.sumup.merchant.reader.models.UserModel;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
