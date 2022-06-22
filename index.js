@@ -44,7 +44,7 @@ const RNSumUp = {
   },
 
   prepareForCheckout() {
-    return RNSumUpWrapper.prepareCardTerminal();
+    return RNSumUpWrapper.prepareForCheckout();
   },
 
   checkout(request, token = null) {
