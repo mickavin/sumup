@@ -19,6 +19,8 @@ import com.sumup.merchant.reader.api.SumUpAPI;
 import com.sumup.merchant.reader.api.SumUpLogin;
 import com.sumup.merchant.reader.api.SumUpPayment;
 
+import com.facebook.react.bridge.UiThreadUtil;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.HashMap;
@@ -99,9 +101,14 @@ public class RNSumUpModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void prepareForCheckout(Promise promise) {
-    mSumUpPromise = promise;
-    SumUpAPI.prepareForCheckout();
+  public void prepareCardTerminal(Promise promise) {
+      UiThreadUtil.runOnUiThread(new Runnable() {
+          @Override
+          public void run() {
+            mSumUpPromise = promise;
+            SumUpAPI.prepareForCheckout();
+          }
+      });
   }
 
   @ReactMethod
