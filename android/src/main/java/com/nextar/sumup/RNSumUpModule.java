@@ -101,11 +101,10 @@ public class RNSumUpModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void prepareForCheckout(Promise promise) {
+  public void prepareForCheckout() {
       UiThreadUtil.runOnUiThread(new Runnable() {
           @Override
           public void run() {
-            mSumUpPromise = promise;
             SumUpAPI.prepareForCheckout();
           }
       });
