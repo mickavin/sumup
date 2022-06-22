@@ -101,7 +101,7 @@ public class RNSumUpModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void prepareCardTerminal(Promise promise) {
+  public void prepareForCheckout(Promise promise) {
       UiThreadUtil.runOnUiThread(new Runnable() {
           @Override
           public void run() {
