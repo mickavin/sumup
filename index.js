@@ -35,8 +35,9 @@ const RNSumUp = {
     return (Platform.OS === 'ios') ? RNSumUpWrapper.authenticate() : RNSumUpWrapper.authenticate(this.apiKey);
   },
 
-  authenticateWithToken(token) {
-    return (Platform.OS === 'ios') ? RNSumUpWrapper.authenticateWithToken(token) : RNSumUpWrapper.authenticateWithToken(this.apiKey, token);
+  authenticateWithToken(token, key = null) {
+    console.log('feeer',this.apiKey)
+    return (Platform.OS === 'ios') ? RNSumUpWrapper.authenticateWithToken(token) : RNSumUpWrapper.authenticateWithToken(key, token);
   },
 
   logout() {
