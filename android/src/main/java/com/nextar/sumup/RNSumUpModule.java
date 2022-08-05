@@ -154,7 +154,7 @@ public class RNSumUpModule extends ReactContextBaseJavaModule {
               .receiptEmail(request.getString("email"))
               .receiptSMS(request.getString("tel"))
               .foreignTransactionId(foreignTransactionId)
-              .skipSuccessScreen()
+              //.skipSuccessScreen()
               .build();
       SumUpAPI.checkout(getCurrentActivity(), payment, REQUEST_CODE_PAYMENT);
     } catch (Exception ex) {
