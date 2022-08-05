@@ -151,6 +151,8 @@ public class RNSumUpModule extends ReactContextBaseJavaModule {
               .total(new BigDecimal(request.getString("totalAmount")).setScale(2, RoundingMode.HALF_EVEN))
               .currency(currencyCode)
               .title(request.getString("title"))
+              .receiptEmail(request.getString("email"))
+              .receiptSMS(request.getString("tel"))
               .foreignTransactionId(foreignTransactionId)
               .skipSuccessScreen()
               .build();
