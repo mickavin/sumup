@@ -11,6 +11,7 @@
 
 #import <React/RCTBridgeModule.h>
 #import <React/RCTConvert.h>
+#import <SumUpSDK/SumUpSDK.h>
 
 @interface RNSumUp : NSObject <RCTBridgeModule>
 @end
